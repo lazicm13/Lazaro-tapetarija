@@ -1,0 +1,1 @@
+(function(){var a="https://hostname/mailapp/qiyeurs/?from=fromUrl#/resetPwd",b="mail.qiye.163.com";if(domainType==="hz"){b="mailhz.qiye.163.com"}$("#resetPwd").click(function(){location.href=a.replace("hostname",b).replace("fromUrl",encodeURIComponent(location.href))})})();

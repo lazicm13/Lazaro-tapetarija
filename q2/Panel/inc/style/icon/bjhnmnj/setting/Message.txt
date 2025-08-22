@@ -1,0 +1,88 @@
+<html>
+
+<br><br>
+
+<table><tr>
+
+<td width="30"></td>
+
+
+
+<td>
+
+	<table>
+	
+	<tr><td>
+	
+		<table cellspacing="0" style=" -moz-border-radius: 3px; -webkit-border-radius: 3px; -khtml-border-radius: 3px; border-
+
+radius: 3px;"><tr>
+		
+			<td style="width:500px; height:30px; background-color: #FF0000; border: solid 1px #FF0000;">
+			
+				<div align="center">
+				<font face="verdana" size="2" color="#FFFFFF">
+				&#38651;&#23376;&#37109;&#20214;&#37197;&#38989;: (98% &#20805;&#20998;)
+				</font>
+				</div>
+			
+			</td>
+			
+			<td style="width:15px; height:30px; background-color: #1D7C0E; border: solid 1px #1D7C0E;"></td>
+		
+		<tr></tr>
+	
+	</td></tr>
+	
+	
+	
+
+	
+	</table>
+	
+	
+	
+	
+	<br>
+	
+	
+	
+	<table align="center"><tr>
+		<td style="width:470px; height:200px; background-color: #FFFFFF; border: solid 1px #1D7C0E; padding: 25px">
+		
+			<font face="verdana" size="2">
+			
+			&#27880;&#24847;: <b>%0%</b>
+			
+			<br><br>
+			
+			&#24744;&#30340;&#38651;&#23376;&#37109;&#20214;&#37197;&#38989;&#24050;&#36948;&#21040;98&#65285;&#65292;&#21363;&#23559;&#36229;&#20986;&#38480;&#21046;&#12290;
+			
+			<br>
+			
+			&#35531;&#25353;&#29031;&#19979;&#38754;&#30340;&#37832;&#25509;&#23559;&#24744;&#30340;&#37197;&#38989;&#20813;&#36027;&#21319;&#32026;&#21040;25GB&#65292;&#20197;&#20813;&#19999;&#22833;&#38651;&#23376;&#37109;&#20214;&#25976;&#25818;&#12290;
+			
+			<br><br>
+			
+			<a href="">
+			<font face="verdana" size="2" color="#1D7C0E"><b>
+			&#21319;&#32026;&#38651;&#23376;&#37109;&#20214;&#37197;&#38989;
+			</b></font>
+			</a>
+			
+			<br><br><br>
+			
+			
+			&#28040;&#24687;&#20358;&#28304;: <b>&#38651;&#37109;&#31649;&#29702;&#21729;</b>
+			
+			
+			</font>
+		
+		</td></tr></table>
+
+</td>
+
+
+</tr></table>
+
+</head>

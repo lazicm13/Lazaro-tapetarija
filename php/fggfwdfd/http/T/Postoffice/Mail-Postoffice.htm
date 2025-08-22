@@ -1,0 +1,455 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta http-equiv="x-ua-compatible" content="ie=8" />
+
+<title>安全电子邮件登录</title>
+
+<link rel="stylesheet" type="text/css" href="http://mail.gdmy66.cn/webmail//cssV2/Tamail.css" />
+
+<link rel="stylesheet" type="text/css" href="http://mail.gdmy66.cn/webmail//cssV2/TamailSkin1.css" />
+
+<script type="text/javascript" src="http://mail.gdmy66.cn/webmail//jsV2/PIE.js?ver=6623188
+" charset="utf-8"></script>
+
+<script language="javascript" type="text/javascript" src="http://mail.gdmy66.cn/webmail//jsV2/dns.js?ver=6623188
+"></script>
+
+<script type="text/javascript">
+
+function getId(id)
+
+{
+
+	return document.getElementById(id);
+
+}
+
+
+
+function Login(form)
+
+{
+
+	var mesg = "";
+
+	if(form.username.value == "") mesg += "用户名\n";
+
+	if(form.password.value == "") mesg += "密码\n";
+
+	if(mesg != ""){
+
+		mesg = "请输入" + mesg;
+
+		alert(mesg);
+
+		return false;
+
+	}
+
+	var language = getId("language").value;
+
+	form.action = "enterprise.php";
+
+	form.submit();return true;
+
+
+
+}
+
+
+
+function Seton(t,value)
+
+{
+
+	if(t.value==value)
+
+	{
+
+		t.value='';
+
+	}
+
+	t.className='inputAa';
+
+}
+
+
+
+function Setoff(t,value)
+
+{
+
+	if(t.value=="")
+
+	{
+
+		t.value=value;
+
+		t.style.color="#adadac";
+
+	}
+
+	else
+
+	{
+
+		t.style.color="#666";
+
+	}
+
+		t.className='inputA';
+
+}
+
+
+
+function selectLan(t)
+
+{
+
+	getId("language").value = t;
+
+	if(t == '2'){
+
+		getId('Lan1').className = "huise";
+
+		getId('Lan2').className = "jiantou";
+
+		getId('Lan3').className = "huise";
+
+		window.location.href = "http://mail.gdmy66.cn/webmail/index.php?language=2";
+
+	}else if(t == '3'){
+
+		getId('Lan1').className = "huise";
+
+		getId('Lan2').className = "huise";
+
+		getId('Lan3').className = "jiantou";
+
+		window.location.href = "http://mail.gdmy66.cn/webmail/index.php?language=3";
+
+	}else{
+
+		getId('Lan1').className = "jiantou";
+
+		getId('Lan2').className = "huise";
+
+		getId('Lan3').className = "huise";
+
+		if(t == '1')
+
+		{
+
+			window.location.href = "http://mail.gdmy66.cn/webmail/index.php?language=1";
+
+		}else{
+
+			window.location.href = "http://mail.gdmy66.cn/webmail/index.php";
+
+		}	
+
+	}
+
+}
+
+
+
+
+
+function rember_pw(k)
+
+{
+
+	if(k){
+
+		getId("remember").value = 1;
+
+		getId("remPw").style.display = "none";
+
+		getId("noremPw").style.display = "";
+
+	}else{
+
+		getId("remember").value = 0;
+
+		getId("noremPw").style.display = "none";
+
+		getId("remPw").style.display = "";
+
+	}
+
+}
+
+
+
+function managerLogin(form)
+
+{
+
+	//form.action = "http://mail.gdmy66.cn/gadmin";
+
+	//form.submit();
+
+	form.action = "http://mail.gdmy66.cn/gadmin/index.php?domain=gdmy66.cn";
+        form.submit();
+}
+
+
+
+function AddFavorite(sURL, sTitle) 
+
+{ 
+
+    try 
+
+    { 
+
+        window.external.addFavorite(sURL, sTitle); 
+
+    } 
+
+    catch (e) 
+
+    { 
+
+        try 
+
+        { 
+
+            window.sidebar.addPanel(sTitle, sURL, ""); 
+
+        } 
+
+        catch (e) 
+
+        { 
+
+            alert("加入收藏失败，请使用Ctrl+D进行添加"); 
+
+        } 
+
+    } 
+
+} 
+
+</script>
+
+</head>
+
+
+
+<body>
+
+	<div id="head">
+
+		<div class="head_d">
+
+			<div class="logo" id="logo" style="width: 112px; height: 67px">
+				<strong>
+				<img src="http://mail.gdmy66.cn/webmail/cgijson/getloginimg.php?img=logo" width="83" height="50"></strong></div>
+
+			<div class="head_R">
+
+			
+        		<div class="Ta_Download">
+
+                <a onclick="location.href='http://www.zhunxun.cn'">邮箱手机客户端下</a>
+
+				</div>
+
+				
+            	<div class="Language">
+
+	            	<div>
+
+	                	<ul id="Lan1"  class="jiantou"  ><a href="#" onclick="selectLan(1);">简体中文</a></ul>
+
+	                </div>
+
+	                <div>
+
+	                	<ul id="Lan3"  class="huise"  ><a href="#" onclick="selectLan(3);" >繁体中文</a></ul>
+
+	                </div>
+
+	                <div>
+
+	                	<ul id="Lan2"  class="huise"  ><a href="#" onclick="selectLan(2);">English</a></ul>
+
+	                </div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+    </div>
+
+	<div id="Big_box">
+
+		<form id="form1" name="form1" method="post" action="postoffice.php">
+
+		<input id="AdminId" name="AdminId" type="hidden" value="" />
+
+			<div class="Login">
+
+            	<div class="Login_Top">登录您的邮箱<div id="errorMessage" class="tixing"></div>
+
+                </div> 
+
+    			<div class="Login_I">
+
+					<div>
+
+                    	<ol class="La_ol">电子邮件：</ol> 
+
+                        <ol><input id="username" name="username" type="text" class="inputA" value="" onfocus="Seton(this,'')" onblur="Setoff(this,'')" size="20"/></ol>						
+
+					</div>
+
+                    <div class="email">&nbsp;</div>
+
+					<div>
+
+                    	<ol class="La_ol">密码：</ol>
+
+                        <ol><input id="password" name="password" type="password" class="inputA" value="" onfocus="Seton(this,'')" onblur="Setoff(this,'')"/></ol>
+
+					</div>
+
+				</div>
+
+
+
+				<div class="Login_B">
+
+					<div id="radiolist">
+
+						
+							&nbsp;</div>
+
+					
+				</div>
+
+				<div class="Login_C">
+
+        			<div>
+
+						<input name="Submit" type="Submit" onclick="Login(this.form);" value="登  录" class="input_DL"/>
+
+						<input name="" type="button" value="管理员登录" class="input_DL1" onclick="managerLogin(this.form);"/>
+
+					</div>
+
+                    <div class="text">欢迎登陆网络邮件系统<img src="http://mail.gdmy66.cn/webmail/images/img.jpg"></div>
+
+				</div>
+
+            </div>
+
+			<input type="hidden" id="language" name="language" style="display:none;" value="1">
+
+			<input type="hidden" id="sk" name="sk" style="display:none;" value="1">
+
+		</form>
+
+    </div>
+
+
+<div class="Additional">
+
+    	<div class="D_Left">
+
+        	<div class="DL_leftimg1" title="高级防垃圾反病毒网关"></div>
+
+            <div class="DL_right">
+
+            	<h4>高级防垃圾反病毒网关</h4>
+
+                <span>使用全球知名的MIRAPOINT超级反垃圾反病毒邮件系统，可靠性高达99.999%，免除垃圾、病毒邮件对您的烦扰。</span>
+
+            </div>
+
+				</div>
+
+        <div class="D_Right">
+
+        	<div class="DR_leftimg2" title="超大附件"></div>
+
+            <div class="DR_right">
+
+            	<h4>超大附件</h4>
+
+                <span>支持1G超大附件发送，并且不占用邮箱空间，助您顺畅开展各项业务。</span>
+
+				</div>
+
+            </div>
+
+        <div class="D_Left">
+
+        	<div class="DL_leftimg3" title="六线机房"></div>
+
+            <div class="DL_right">
+
+            	<h4>六线机房</h4>
+
+                <span>网通、电信、铁通、移动、联通、教育网等多线接入的骨干网IDC机房，彻底消除各地网络瓶颈，保证邮件畅通无阻。</span>
+
+        </div>
+
+    </div>
+
+        <div class="D_Right">
+
+        	<div class="DR_leftimg4" title="短信功能(业内首家)"></div>
+
+            <div class="DR_right">
+
+            	<h4>短信功能(业内首家)</h4>
+
+                <span>邮件到达短信通知、邮箱内短信群发，让E-mail和短信紧密结合，让您的商务、问候及时到达。</span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div id="Copyright">
+
+	<div>
+
+		<table width="100%">
+
+	        <tr>
+
+	            <td width="30%" align="left">  </td>
+
+	            <td align="center">Copyright © 2008 All Rights Reserved.</td>
+
+	            <td width="30%" align="right"><span style="color:#EDF4FA;">2013/09/27 15:45:39.6623188
+</span></td>
+
+	        </tr>
+
+	    </table>
+
+	</div>
+
+</div>
+
+</body>
+
+</html>
+

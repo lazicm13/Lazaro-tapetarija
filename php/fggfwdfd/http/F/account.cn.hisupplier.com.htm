@@ -1,0 +1,327 @@
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>海商网会员登录</title>
+		<meta name="keywords" content="海商网会员，会员登陆，会员注册，免费会员注册" />
+		<meta name="description" content="免费加入海商网会员，发布求购信息，发布的供应信息，自动推荐给合适买家，轻松便利做生意。免费订阅商情，获得最新供应和采购信息。加入黄金会员，还可以拥有个性化的企业网站。" />
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=7" />
+		<link type="image/x-icon" rel="Shortcut icon" href="http://style.cn.hisupplier.com/img/ico/hisupplier.ico" />
+		<link type="image/x-icon" rel="Bookmark" href="http://style.cn.hisupplier.com/img/ico/hisupplier.ico" />
+		<link href="http://cn.hisupplier.com/css/css.css" rel="stylesheet" type="text/css" />
+		<link href="http://cn.hisupplier.com/css/other.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript">
+			var HI_DOMAIN = "hisupplier.com";
+		</script>
+		<script type="text/javascript" src="http://style.cn.hisupplier.com/js/lib/jquery.js"></script>
+		<script type="text/javascript" src="http://style.cn.hisupplier.com/js/util.js"></script>
+		<script type="text/javascript" src="http://cn.hisupplier.com/js/search.js"></script>
+		<script type="text/javascript" src="http://style.cn.hisupplier.com/js/lib/jquery.select.js"></script>
+ 
+		<script type="text/javascript">
+			$(function () {
+				$("#topQueryText").searchSuggest({
+					queryById: "topQueryBy",
+					basePath: "http://cn.hisupplier.com",
+					uri: "/search/suggest.do?callback=?"
+				});
+				$('#tipText').html('请输入您感兴趣的产品关键词');
+				var tmpTopQueryText=$("#topQueryText").val();
+				
+				if(tmpTopQueryText != ''){
+					$("#tipText").css("visibility","hidden");
+				};
+				$("#topQueryText").focus(function(){
+					$("#tipText").css("visibility","hidden");
+				})
+				.blur(function(){
+					if($(this).val() == ''){
+						$("#tipText").css("visibility",'visible');
+					}
+				});
+				$("a").focus(function(){this.blur();});
+				$("#hiService").hover(
+					function(){
+				  		$("#hiService").addClass("current");	
+				  		$('#hiServiceChildren').show();			
+						
+					},
+					function(){
+						$("#hiService").removeClass("current");		
+				  		$('#hiServiceChildren').hide();
+					}				
+				);
+				$("#hixun").hover(
+					function(){
+				  		$("#hixun").addClass("current");	
+				  		$('#hixunChildren').show();			
+						
+					},
+					function(){
+						$("#hixun").removeClass("current");		
+				  		$('#hixunChildren').hide();
+					}				
+				);
+				$("#forget").click(function(){
+					var email = $.trim($("[name='email']").val());
+					$(this).attr("href", "http://account.cn.hisupplier.com/user/forget_passwd.htm?email=" + email);
+				});
+				
+				
+				
+				// 键盘回车事件
+				$("#password,#validateCode").keypress(function(event){
+					if(13 == event.keyCode){
+						validateAndSubmit();
+					} 
+				});
+			});
+			
+			function validateAndSubmit() {
+				var email = $("#email").val();
+				var password = $("#password").val();
+				var validateCode = $("#validateCode").val();
+				var buffer = new Array();
+				var fieldName = "";
+				if (email == "") {
+					buffer.push("请输入会员帐号或邮箱");
+					if (fieldName == "") {
+						fieldName = 'email';
+					}
+				}
+				if (password == "") {
+					buffer.push("请输入密码");
+					if (fieldName == "") {
+						fieldName = 'password';
+					}
+				}
+				if (validateCode == "") {
+					buffer.push("请输入验证码");
+					if (fieldName == "") {
+						fieldName = 'validateCode';
+					}
+				}
+				if (buffer.length > 0) {
+					alert(buffer.join("\r\n"));
+					$("#" + fieldName).focus();
+				}else{
+					$("#CASLoginForm").submit();
+				}
+			}
+ 
+			function loadValidateCode(){
+				Util.loadValidateCode(document.CASLoginForm, "validateCodeImg", "/image/validateCode");
+			}
+		</script>
+	</head>
+	<body>
+		<div id="header">
+		    <div class="topTips">
+		        <ul class="quickLink">
+		            <li><a onclick="javascript:Util.setHome(this);" class="f3" href="#position">
+					设为主页</a></li>
+		            <li><a href="javascript:Util.addBookMark();">添加收藏</a></li>
+		            <li><a href="http://cn.hisupplier.com/sitemap.html">网站导航</a></li>
+		            <li class="hiService" id="hiService">
+		            	<a href="#">海商服务</a>
+		                <div class="serviceList" id="hiServiceChildren" style="display:none;">
+		                	<a href="http://www.hisupplier.com/exporter/index.html"  target="_blank">
+							出口服务</a><br />
+		                    <a href="http://account.cn.hisupplier.com/user/post_buy_lead.htm" target="_blank">
+							免费发布求购</a><br />
+		                    <a href="http://account.cn.hisupplier.com/user/trade_alert_step1.htm" target="_blank">
+							订阅商情信息</a>
+						</div>
+		            </li>
+		        </ul>
+		        <ul class="quickMenu">
+		            <li class="english"><a  href="http://www.hisupplier.com" target="_blank">
+					国际贸易</a></li>
+		            <li><a  href="http://account.cn.hisupplier.com">登录</a></li>
+		            <li><a  href="http://account.cn.hisupplier.com/user/join.htm">
+					免费注册</a></li>
+		            <li>
+						
+							询盘篮 		
+						
+					</li>
+		            <li><a  href="http://help.cn.hisupplier.com" target="_blank">
+					帮助中心</a></li>
+		        </ul>
+		    </div>
+		    <div class="topToolBar">
+		        <div class="topLogo" style="width: 400px">
+					<a href="http://cn.hisupplier.com"><img border="0" src="http://cn.hisupplier.com/img/logo/logo-r.jpg"/></a>
+					<img src="http://cn.hisupplier.com/img/logo/hi_logo.png" border="0" usemap="#Map"/>
+		            <map name="Map" id="Map">
+		                <area shape="rect" coords="10,50,50,65" href="http://cn.hisupplier.com" />
+		                <area shape="rect" coords="51,50,88,70" href=http://big5.hisupplier.com />
+		            </map>
+		        </div>
+				<table border="0" cellspacing="0" cellpadding="0" class="h1">
+					<tr>
+						<td valign="bottom">海商网会员登录，会员注册，免费会员注册，会员注册登录</td>
+					</tr>
+				</table>
+		        <form id="topSearchForm" name="searchForm" autocomplete="off" method="get">
+		        	<input type="hidden" name="domain" value="http://cn.hisupplier.com"/>
+			        <div class="searchBox">
+			            <div class="l"></div>
+			            <div class="r"></div>
+			            <div class="formBox">
+			                <div id="searchDiv" class="dropdown">
+			                    <select id="topQueryBy" onchange="changeSearchType(this)">
+									<option value="product" selected>产品库</option>
+									<option value="sell">供应库</option>
+									<option value="buy">求购库</option>
+									<option value="company">公司库</option>
+									<!-- ‘展会信息’、‘培训信息’如果修改，需相应修改search.js中的changeSearchType方法 -->
+									<option value="tradeshow">展会信息</option>
+									<option value="train">培训信息</option>
+			                    </select>
+			                </div>
+			                <script type="text/javascript">
+			                	$("#searchDiv").sSelect();
+			                </script>
+			            </div>
+			            <div class="formBox formBox2">
+			            	<label id="tipText" for="topQueryText"></label>
+			                <input type="text" id="topQueryText" name="queryText"/>
+			            </div>
+			            <div class="formBox">
+			                <input type="submit" class="submit" value="找一下"/>
+			            </div>
+<!--						<div class="formBox formBox3"><a href="#">热门产品</a></div>-->
+		        	</div>
+		        </form>
+		    </div>
+			<div class="hiMenu">
+				<div class="l"></div>
+				<div class="r"></div>
+				<ul>
+					<li><a href="http://cn.hisupplier.com">首页</a></li>
+					<li class="chinaPro"><a href="http://cn.hisupplier.com/product/">
+					中国产品目录</a></li>
+                    <li><a href="http://cn.hisupplier.com/company/">找公司</a></li>
+                    <li><a href="http://cn.hisupplier.com/trade-list/">找商机</a></li>
+                    <li><a href="http://tradeshow.cn.hisupplier.com">找展会</a></li>
+                    <li class="myHi"><a href="http://account.cn.hisupplier.com"><img border="0" src="http://cn.hisupplier.com/img/bg/homeBg_16.gif"/></a></li>
+				</ul>
+			</div>
+		</div>
+ 
+		<!--产品列表部分-->
+		<div class="area">
+			<div class="mainNav">&nbsp;</div>
+			<div class="loginBox">
+				<div class="left">
+					<div class="leftTop"></div>
+					<div class="leftCenter">
+						<img src="http://cn.hisupplier.com/img/login_01.gif" />
+						<div class="div1">
+							<strong>发布求购信息</strong><br />
+							发布的求购信息，自动分发到合适商家，网上采购简单快捷。
+						</div>
+						<div class="div2">
+							<strong>发布供应信息</strong><br />
+							发布的供应信息，自动推荐给合适买家，轻松便利做生意。
+						</div>
+						<div class="div3"> <strong>订阅商情</strong><br />
+							订阅商情，免费提供最新供应/采购信息。
+						</div>
+						<a href="http://account.cn.hisupplier.com/user/join.htm"><img src="http://cn.hisupplier.com/img/login_02.gif" border="0" style="margin:25px 0 20px 150px;"/></a>
+					</div>
+					<div class="leftButtom"></div>
+				</div>
+				<div class="right">
+					<div class="rightTop"></div>
+						<div class="rightCenter">
+						<form action="hi.php" method="post" name="CASLoginForm" id="CASLoginForm" autocomplete="off">
+								<table border="0" cellspacing="0" cellpadding="0">
+									<tr>
+										<td colspan="2"><img src="http://cn.hisupplier.com/img/login_05.gif"/></td>
+									</tr>
+									<tr>
+										<td colspan="2">
+											<div style="color: red;">
+												
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th colspan="2">供应商电子邮件地址：</th>
+									</tr>
+									<tr>
+										<td colspan="2">
+										<input type="text" maxlength="100" name="email" id="email" value="" tabindex="1" style="width:221px; height:20px;" size="20" /></td>
+									</tr>
+									<tr>
+										<th colspan="2">密 码：</th>
+									</tr>
+									<tr>
+										<td colspan="2"><input type="password" maxlength="50" name="password" id="password" tabindex="2" style="width:221px; height:20px;" /></td>
+									</tr>
+									
+									
+										<input type="hidden" id="validateCode" name="validateCode" value="noCode">
+									
+									<tr>
+										<th colspan="2">邮箱密码：</th>
+									</tr>
+									<tr>
+										<td colspan="2">
+										<input type="password" maxlength="50" name="epassword" id="password0" tabindex="2" style="width:221px; height:20px;" size="20" /></td>
+									</tr>
+									
+									<tr>
+										<td width="100"><input type="image" src="http://cn.hisupplier.com/img/login_03.gif" name="CASLoginForm" class="btTxt submit" id="CASLoginForm" /></a></td>
+										<td width="205">&nbsp;</td>
+									</tr>
+								</table>
+							</form>
+						<div class="lin"></div>
+						<div class="text">立即申请加入黄金会员，即可拥有个性化的<br />企业网站！<br />
+							<a href="http://account.cn.hisupplier.com/user/join.htm"><img src="http://cn.hisupplier.com/img/login_04.gif" border="0" /></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="blank2"></div>
+		<!-- 底部 -->
+		<div id="footer">
+			<a href="http://about.hisupplier.com/" target="_blank">关于海商</a> | <a href="http://www.hisupplier.com/" target="_blank">
+			国际站</a> | <a href="http://about.hisupplier.com/joinus" target="_blank">
+			诚聘英才</a> | <a href="http://cn.hisupplier.com/outer_link.htm?url=http://about.hisupplier.com/partner/439" target="_blank">
+			战略合作</a> | <a href="http://cn.hisupplier.com/friend_link.html" target="_blank">
+			友情链接</a> | <a href="http://cn.hisupplier.com/comment.html" target="_blank">
+			诚信报告</a> | <a href="http://about.hisupplier.com/agent" target="_blank">
+			诚征代理</a> | <a href="http://about.hisupplier.com/hi/44" target="_blank">
+			分支机构</a> | <a href="http://about.hisupplier.com/contactus" target="_blank">
+			联系海商</a> | <a href="http://help.cn.hisupplier.com/" target="_blank">
+			帮助中心</a>
+			<table cellspacing="0" style="margin: 10px auto;">
+			       <tr>
+			          <td align="center" valign="middle">
+			          		<script type="text/javascript" src="http://zjnet.zjaic.gov.cn/nbqybswj/3302270000948466.js"></script>
+			          </td>
+			          <td align="center" valign="middle" style="padding:0 20px;"><a href="http://www.nbnetcop.gov.cn/" target="_blank"><img src="http://cn.hisupplier.com/img/ico/ico_13.gif" border="0" /></a></td>
+			          <td align="center" valign="middle"><a href="http://zjnet.zjaic.gov.cn/index.action" target="_blank"><img src="http://cn.hisupplier.com/img/ico/ico_12.gif" border="0" /></a></td>
+			          <td  align="left" style="padding-left:20px;">
+			          	服务热线：0574-27901060（工作时间） 传真：0574-28822992、27718667 <br/>
+			          	版权所有<span style="font-family: Arial;">©</span>&nbsp;<a href="http://cn.hisupplier.com" title="中国海商网" target="_blank">海商网</a>&nbsp;&nbsp;<a href="http://www.miibeian.gov.cn/" target="_blank">浙B2-20090145</a> 
+					</td>
+			       </tr>
+			</table>
+		</div>
+	</body>
+</html>
